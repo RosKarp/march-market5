@@ -95,7 +95,29 @@
     </table>
     <p></p>
     <button class="btn btn-primary" ng-click="createOrder()">Оформить заказ</button>
-
+    <h3>Ваш заказ</h3>
+    <p></p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Название</td>
+            <td>Количество</td>
+            <td>Цена</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="oi in order.items">
+            <td>{{oi.productTitle}}</td>
+            <td>{{oi.quantity}}</td>
+            <td>{{oi.pricePerProduct + ' x ' + oi.quantity + ' = ' + oi.price}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Итого:</td>
+            <td>{{order.totalPrice}}</td>
+        </tr>
+        </tbody>
+    </table>
 <!--    <p></p>-->
 <!--    <h3>Добавить продукт</h3>-->
 <!--    <p></p>-->

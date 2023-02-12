@@ -1,5 +1,6 @@
 package ru.geekbrains.march.market.core.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "orders_items")
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class OrderItem {
     @Id
@@ -43,4 +45,12 @@ public class OrderItem {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public OrderItem(Order order, Product p, BigDecimal pricePerProduct, BigDecimal price, int quantity) {
+        this.order = order;
+        this.product = p;
+        this.pricePerProduct = pricePerProduct;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }
