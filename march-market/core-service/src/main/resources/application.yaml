@@ -18,3 +18,9 @@ spring:
       enabled: true
       settings:
         web-allow-others: false
+integrations:
+  cart-service:
+    url: http://localhost:8190/market-cart/
+    connect-timeout: 5000
+    read-timeout: 10000
+    write-timeout: 5000
